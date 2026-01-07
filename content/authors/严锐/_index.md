@@ -8,6 +8,10 @@ last_name: Yan
 
 index: 60
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://teacher.njust.edu.cn/jsj/yr/list.htm"
+
 # Username (this should match the folder name)
 authors:
   - 严锐

@@ -8,6 +8,10 @@ last_name: Wang
 
 index: 180
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://imag-njust.net/people/user/wangmengyin/"
+
 # Username (this should match the folder name)
 authors:
   - 王梦荫

@@ -8,6 +8,10 @@ last_name: Dong
 
 index: 35
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://gsmis.njust.edu.cn/open/TutorInfo.aspx?dsbh=m8Udo8FW5ChQ260ISzP2sw==&yxsh=z70ppxVSQAs=&zydm=SwsWR9zpmmw=%EF%BC%8C"
+
 # Username (this should match the folder name)
 authors:
   - 董姜鑫

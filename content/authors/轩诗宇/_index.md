@@ -8,6 +8,10 @@ last_name: Xuan
 
 index: 130
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://teacher.njust.edu.cn/jsj/xsy/list.htm"
+
 # Username (this should match the folder name)
 authors:
   - 轩诗宇

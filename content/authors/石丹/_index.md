@@ -8,6 +8,10 @@ last_name: Shi
 
 index: 140
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://imag-njust.net/people/user/shidan"
+
 # Username (this should match the folder name)
 authors:
   - 石丹

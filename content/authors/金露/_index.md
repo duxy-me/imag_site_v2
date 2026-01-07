@@ -8,6 +8,10 @@ last_name: Jin
 
 index: 100
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://gsmis.njust.edu.cn/open/TutorInfo.aspx?dsbh=9u4mh96bDcUUqtrTsOyaLA==&yxsh=z70ppxVSQAs=&zydm=SwsWR9zpmmw="
+
 # Username (this should match the folder name)
 authors:
   - 金露

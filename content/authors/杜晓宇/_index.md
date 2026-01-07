@@ -8,6 +8,10 @@ last_name: Du
 
 index: 120
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://gsmis.njust.edu.cn/open/TutorInfo.aspx?dsbh=mr9TA-N!nOQw6Doo5dMuIQ==&yxsh=z70ppxVSQAs=&zydm=SwsWR9zpmmw="
+
 # Username (this should match the folder name)
 authors:
   - 杜晓宇

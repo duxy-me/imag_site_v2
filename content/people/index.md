@@ -13,7 +13,7 @@ sections:
       user_groups:
           - Faculty 
           - Academic Placements
-          - Ph.D(博士)
+          # - Ph.D(博士)
           # - Principal Investigators
           # - Researchers
           # - Grad Students

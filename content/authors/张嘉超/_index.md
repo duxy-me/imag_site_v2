@@ -8,6 +8,10 @@ last_name: Zhang
 
 index: 190
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://teacher.njit.edu.cn/zhangjiachao/zh_CN/index/49863/list/"
+
 # Username (this should match the folder name)
 authors:
   - 张嘉超

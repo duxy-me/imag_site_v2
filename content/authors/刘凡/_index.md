@@ -8,6 +8,10 @@ last_name: Liu
 
 index: 170
 
+# 跳转外部链接,不使用内部的
+external_link_only: true
+external_url: "https://cies.hhu.edu.cn/2024/0521/c21522a280137/page.htm"
+
 # Username (this should match the folder name)
 authors:
   - 刘凡
