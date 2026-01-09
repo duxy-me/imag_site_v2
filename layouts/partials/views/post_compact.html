@@ -1,0 +1,42 @@
+{{ $item := .item }}
+
+{{/* 定义链接逻辑 */}}
+{{ $link := $item.RelPermalink }}
+{{ $target := "" }}
+{{ if $item.Params.external_link }}
+  {{ $link = $item.Params.external_link }}
+  {{ $target = "target=\"_blank\" rel=\"noopener\"" }}
+{{ end }}
+
+<div class="media stream-item view-compact">
+  <div class="media-body">
+
+    {{/* 1. 标题区域 */}}
+    <div class="section-subheading article-title mb-0 mt-0">
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }}>{{ $item.Title }}</a>
+    </div>
+
+    {{/* 2. 日期区域 (自定义格式：2025年12月31日) */}}
+    <div class="stream-meta article-metadata">
+      <span class="article-date" style="font-size: 0.85rem; color: #777;">
+        {{ $item.Date.Format "2006年01月02日" }}
+      </span>
+    </div>
+
+    {{/* 这里原本的 summary 和 page_metadata 已全部删除，只保留标题和日期 */}}
+
+  </div>
+
+  {{/* 3. 图片区域 (右侧) - 保持不变 */}}
+  {{ $resource := partial "blox-core/functions/get_featured_image.html" $item }}
+  {{ with $resource }}
+    {{ $image := .Resize "150x" }}
+    {{ if ne $image.MediaType.SubType "gif" }}{{ $image = $image.Process "webp" }}{{ end }}
+    <div class="ml-3">
+      <a href="{{$link}}" {{ $target | safeHTMLAttr }}>
+        <img src="{{ $image.RelPermalink }}" height="{{ $image.Height }}" width="{{ $image.Width }}"
+             alt="{{ $item.Title }}" loading="lazy">
+      </a>
+    </div>
+  {{ end }}
+</div>
