@@ -43,3 +43,12 @@
   color: inherit;
   border-color: #dee2e6
 }
+
+/* 强制表格的第一列和第二列内容不换行 */
+.table th:nth-child(1),
+.table td:nth-child(1),
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  white-space: nowrap !important;
+  width: 1%; /* 技巧：让这两列宽度自动收缩到刚好包裹文字，不占用额外空间 */
+}

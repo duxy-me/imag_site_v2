@@ -2,7 +2,7 @@
 title: 科研项目
 ---
 
-<table class=".table">
+<table class="table">
     <thead>
         <tr>
             <th style="text-align:left">项目开始时间</th>
