@@ -19,7 +19,7 @@ image:
   preview_only: true 
 ---
 
-第34届国际万维网大会（WWW 2025）论文录用结果今日揭晓，南京理工大学多媒体计算实验室有一篇论文被录用。WWW是互联网与数据挖掘领域的顶级国际会议（CCF A类会议）。WWW 2026将于2026年4月13日至17日在阿拉伯联合酋长国的迪拜节日城（Dubai Festival City）举办。本次会议接收的简要介绍如下：  
+第34届国际万维网大会（WWW 2026）论文录用结果今日揭晓，南京理工大学多媒体计算实验室有一篇论文被录用。WWW是互联网与数据挖掘领域的顶级国际会议（CCF A类会议）。WWW 2026将于2026年4月13日至17日在阿拉伯联合酋长国的迪拜节日城（Dubai Festival City）举办。本次会议接收的简要介绍如下：  
 **DMAP: Human-Aligned Structural Document Map for Multimodal Document Understanding**  
 **作者**：付顺亮，张彦昕，向一心，杜晓宇，唐金辉  
 **单位**：南京理工大学  
