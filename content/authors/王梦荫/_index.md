@@ -10,7 +10,7 @@ index: 180
 
 # 跳转外部链接,不使用内部的
 external_link_only: true
-external_url: "https://imag-njust.net/people/user/wangmengyin/"
+external_url: "https://new.dlnu.edu.cn/xintong/info/1194/3403.htm"
 
 # Username (this should match the folder name)
 authors:
