@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>国家自然科学基金"多媒体分析与检索"（61925204）成果介绍</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #880088;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+            background: white;
+            padding: 10px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 800px;
+        }
+        .tab {
+            background: transparent;
+            color: #666;
+            padding: 12px 30px;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            margin: 0 5px;
+        }
+        .tab:hover {
+            background: rgba(136, 0, 136, 0.1);
+            color: #880088;
+        }
+        .tab.active {
+            background: #880088;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(136, 0, 136, 0.3);
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .application-projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2em;
+            padding: 20px 0;
+        }
+
+        .project {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project h3 {
+            color: #880088;
+            margin-top: 0;
+            margin-bottom: 1.5em;
+            font-size: 1.3em;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .project h3::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: #880088;
+        }
+
+        .media-container {
+            display: grid;
+            gap: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .media-container.single {
+            grid-template-columns: 1fr;
+        }
+
+        .media-container.multiple {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .media-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            background-color: #f8f8f8;
+            aspect-ratio: 16/9;
+        }
+
+        .media-item img,
+        .media-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .media-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 8px;
+            font-size: 0.9em;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .media-item:hover .media-caption {
+            transform: translateY(0);
+        }
+
+        .media-item:hover img,
+        .media-item:hover video {
+            transform: scale(1.05);
+        }
+
+        /* 点击展开效果 */
+        .media-item.expanded {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+
+        .media-item.expanded img,
+        .media-item.expanded video {
+            max-width: 90%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .media-item.expanded .media-caption {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* 理论成果部分样式 */
+        #theory ul li {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+            line-height: 1.8;
+            text-indent: 2em;
+            transition: transform 0.3s ease;
+        }
+
+        #theory ul li:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 科研奖励部分样式 */
+        #reward ul li {
+            background: white;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #880088;
+        }
+
+        #reward ul li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* 人才培养部分样式 */
+        #human h2 {
+            color: #880088;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #880088;
+            margin: 30px 0 20px;
+        }
+
+        #human ul {
+            display: block;
+            gap: 20px;
+            padding: 0;
+        }
+
+        #human ul li {
+            width: 100%;
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        #human ul li:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #human ul li ul {
+            margin-top: 10px;
+        }
+
+        #human ul li ul li {
+            box-shadow: none;
+            padding: 5px 0;
+            margin-left: 20px;
+            border-radius: 0;
+        }
+
+        .highlight ul li {
+            border-left: 4px solid #880088;
+        }
+
+        /* 通用样式优化 */
+        .section {
+            padding: 20px;
+            background: #f8f8f8;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .section h2 {
+            color: #880088;
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            text-align: center;
+        }
+
+        /* 添加响应式设计 */
+        @media (max-width: 768px) {
+            .tabs {
+                flex-wrap: wrap;
+                border-radius: 15px;
+                padding: 5px;
+            }
+            
+            .tab {
+                padding: 10px 20px;
+                margin: 5px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>国家自然科学基金"多媒体分析与检索"（61925204）<br>成果介绍</h1>
+</div>
+
+<div class="container">
+    <div class="tabs">
+        <div class="tab active" onclick="switchSection('theory')">理论成果</div>
+        <div class="tab" onclick="switchSection('application')">应用情况</div>
+        <div class="tab" onclick="switchSection('reward')">科研奖励</div>
+        <div class="tab" onclick="switchSection('human')">人才培养</div>
+    </div>
+
+    <div id="theory" class="section active">
+        <h2>理论成果</h2>
+        <ul>
+            <li>
+            （1）物理-数据-知识三元驱动的图像视频增强理论与方法：针对视觉退化因素难建模、结构难刻画和复原模型难求解的挑战，本项目围绕退化因素在降质过程中的作用机理、清晰图像特征与退化图像特征的关联性这两个关键科学问题展开了研究，发现了图像视频中蕴含的自相似性结构特性以及外在清晰样本数据特征在退化因素建模中的作用，提出了深度特征蒸馏引导的自监督学习方法，突破了复杂场景下退化因素未知、退化因素耦合对复原图像视频质量的制约；揭示了局部细节特征和非局部结构特征在清晰图像重构中的相互作用机制，提出了局部细节特征与非局部结构特征协同建模方法，解决了局部细节特征与非局部结构特征耦合导致的重要细节和结构难修复的挑战；发现了图像视频的语义特征在退化过程中的不变性，提出了语义特征引导的图像视频增强方法，克服了基于底层局部特征建模所导致的语义结构丢失以及颜色失真的问题；建立了多尺度深度特征线性注意力机制与Transformer中的自注意力机制的关联性，提出了基于多尺度深度特征解耦的注意力机制，将基于Transformer的图像视频复原模型复杂度降低了3倍以上。该研究成果被应用于历史影像以及经典影视资料的修复，修复的高清版4K历史影像在国庆75周年期间央视《为了新中国》中播出，高清修复了新中国第一支奥运代表团亮相奥运会场的历史影像《1952年奥运会--新中国的第一支奥运代表团亮相奥运会场》、经典电影《雷锋》、央视版《西游记》等，受到新华社、央视综合频道、央视频、央视网、江苏卫视、江苏教育频道、南京电视台、新华日报、南京日报等多家媒体报道。
+            </li>
+            <li>
+（2）跨域协同的视觉内容分析理论与方法：针对如何挖掘视觉数据的上下文结构信息，突破视觉特征与语义信息之间的壁垒这一科学难题，项目组发现了特征金字塔架构层次化特征的分配规律，建立了多层特征交互协同表达机制，提出了基于特征金字塔层次化上下文的特征交互学习模型，通过跨空间跨尺度的特征交互方式捕获物体不同尺度的全局上下文；进一步发现了语义识别任务中不同上下文信息的作用不明确导致的上下文使用混乱，为此提出了上下文串联网络结构，协同挖掘通道和空间上下文信息，利用通道上下文信息增大类内距离进而减少语义分割过程中噪声类的引入，同时利用空间上下文信息缩小类内聚类进而扩大模型感受野，有效减少了无关类别的引入，在提升模型性能的同时大幅度降低了模型的计算代价；发现了部分上下文信息在挖掘过程中会产生虚假语义关联，为此提出了基于后门调整的因果干预模型，通过将因果干预作为新的图像分类器去除虚假关联，得到内在因果关联关系，进而提升视觉内容识别的性能。相关研究成果成功应用于高速铁路道床裂纹识别、某型地面机器人周边环境智能感知、有害视觉内容监管等实际业务中，为我国国防科技和社会公共安全做出了重要贡献。
+</li>
+<li>
+（3）多元关联解耦的视频动作理解理论与方法：针对开放场景下视频动作理解中多粒度行为并存难建模、语义时空复杂难提取、动作识别难泛化等科学难题，项目组发现了视频中人体行为-实体-背景等多元信息的相互作用关系，提出掩模引导的前景-背景交互学习方法，通过注意力机制完成视频动态前景区域与静态背景区域的动静语义交互，突破了复杂场景下多人行为的多粒度定位与检测难题；发现了人体行为与交互实体的多样性组合，提出提示微调方法对行为和实体进行语义解耦与重构，克服了样本受限时人体行为识别的低泛化问题；挖掘人体行为的空间多样化与时序不变性模式，提出了多样化原型学习模型，有效刻画长短视频序列中人体行为语义信息的时序不变性，突破了长短视频语义对齐的不确定性瓶颈；发现了个体-交互-群体行为的时空同现规律，提出分层图引导的行为特征学习框架，建模同一场景下个体-交互-群体多粒度行为的双向传递关系，准确刻画了个体特定性语义信息与群体普遍性语义信息。相关研究成果成功应用于国防和警务系统中固定监控、机载监控、星载监控下的目标动作定位、检测与识别等实际业务，取得了显著的社会效益。
+</li>
+
+        </ul>
+    </div>
+
+    <div id="application" class="section">
+        <h2>应用情况</h2>
+        <div class="application-projects">
+            <!-- 社会公共安全：社会维稳 -->
+            <div class="project">
+                <h3>社会公共安全：社会维稳</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <img src="/grants/NSFC61925204/系统界面.png" alt="系统界面">
+                        <div class="media-caption">系统界面</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社会公共安全：智能监控 -->
+            <div class="project">
+                <h3>社会公共安全：智能监控</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <img src="/grants/NSFC61925204/视频行为智能解析系统.png" alt="视频行为智能解析系统">
+                        <div class="media-caption">视频行为解析系统</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社会公共安全：高铁巡检 -->
+            <div class="project">
+                <h3>社会公共安全：高铁巡检</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <img src="/grants/NSFC61925204/高铁巡检.png" alt="高铁巡检图像">
+                        <div class="media-caption">综合巡检车图像智能分析系统</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史文化传承：历史影像及经典影视修复 - 奥运会 -->
+            <div class="project">
+                <h3>历史文化传承：历史影像及经典影视修复</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <img src="/grants/NSFC61925204/奥运会.png" alt="奥运会">
+                        <div class="media-caption">1952年奥运会历史影像修复</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史文化传承：历史影像及经典影视修复 - 西游记 -->
+            <div class="project">
+                <h3>历史文化传承：历史影像及经典影视修复</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <img src="/grants/NSFC61925204/西游记.png" alt="西游记">
+                        <div class="media-caption">《西游记》经典画面修复</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史文化传承：历史影像及经典影视修复 - 为了新中国 -->
+            <div class="project">
+                <h3>历史文化传承：历史影像及经典影视修复</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <video src="/grants/NSFC61925204/为了新中国.mp4" controls></video>
+                        <div class="media-caption">《为了新中国》修复片段</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 历史文化传承：历史影像及经典影视修复 - 报道 -->
+            <div class="project">
+                <h3>历史文化传承：历史影像及经典影视修复</h3>
+                <div class="media-container single">
+                    <div class="media-item">
+                        <video src="/grants/NSFC61925204/报道.mp4" controls></video>
+                        <div class="media-caption">媒体报道</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="reward" class="section">
+        <h2>科研奖励</h2>
+        <ul>
+            <li>唐金辉(1/1); 江苏省青年科技杰出贡献奖，江苏省人民政府，人物奖，省部一等奖，2024</li>
+            <li>唐金辉(1/5); 语义关联驱动的多媒体大数据智能感知理论与方法，中国电子学会一等奖，自然科学，其他，2023（唐金辉；李泽超；刘静；舒祥波；卢汉清）</li>
+            <li>唐金辉(1/8); 高效视觉内容表示与识别，江苏省人民政府，自然科学，省部一等奖，2021（唐金辉；李泽超；孙福明；赵春霞；李豪杰；何明；颜雪军；李旻先）</li>
+            <li>唐金辉(1/1); 国务院政府特殊津贴，中华人民共和国国务院，人物奖，其他，2023</li>
+            <li>唐金辉(1/1); 国际模式识别学会会士，国际模式识别学会，人物奖，国际学术奖，2022</li>
+            <li>唐金辉(3/6); 高精度低时延空间计算关键技术和设备，湖北省人民政府，发明，省部一等奖，2024（杨欣；廖春元；唐金辉；胡庆拥；冯镔；袁子康）</li>
+        </ul>
+    </div>
+    <div id="human" class="section">
+        
+        <h2>中青年学术带头人培养情况</h2>
+        <div class="highlight">
+            <ul>
+                <li>1. 唐金辉（教授）
+                    <ul>
+                        <li>2023年度江苏省青年科技杰出贡献奖</li>
+                        <li>2023年国务院政府特殊津贴</li>
+                        <li>2022年国际模式识别学会会士（IAPR Fellow）</li>
+                        <li>2022年度中国电子学会自然科学一等奖（第一完成人）</li>
+                        <li>2020年度江苏省科学技术一等奖（第一完成人）</li>
+                    </ul>
+                </li>
+                <li>2. 李泽超（教授）<br>2024年国家杰出青年科学基金</li>
+                <li>3. 舒祥波（教授）<br>2022年国家自然科学基金优秀青年科学基金</li>
+                <li>4. 潘金山（教授）<br>2024年江苏省333工程中青年科技领军人才</li>
+            </ul>
+        </div>
+        <h2>博士培养情况</h2>
+        <ul>
+            <li>1. 王梦荫（博士生）<br>论文题目：视觉内容中的人物社交关系理解研究，论文完成时间2020年</li>
+            <li>2. 张冬（博士生）<br>论文题目：像素级图像语义理解的特征表示方法研究，论文完成时间2021年</li>
+            <li>3. 李润德（博士生）<br>论文题目：面向图像和视频去雾的深度学习模型及算法研究，论文完成时间2021年</li>
+            <li>4. 严锐（博士生）<br>论文题目：面向复杂场景的行为识别方法研究，论文完成时间2022年（获2024年中国图像图形学会优秀博士论文奖）</li>
+            <li>5. 龚寓凯（博士生）<br>论文题目：声道音乐源分离的分音重叠问题研究，论文完成时间2022年</li>
+            <li>6. 王晶（博士生）<br>论文题目：基于视觉关系和语义关联的图像描述生成研究，论文完成时间2023年</li>
+            <li>7. 王健（博士生）<br>论文题目：人脸深度伪造检测及定位方法研究，论文完成时间2023年</li>
+            <li>8. 王凤云（博士生）<br>论文题目：基于RGB-D信息融合的视觉感知方法研究，论文完成时间：2023年</li>
+            <li>9. 骆瑶（博士生）<br>论文题目：面向视频增强的神经网络自适应融合方法研究，论文完成时间：2023年</li>
+            <li>10. 严双林（博士生）<br>论文题目：面向开放环境的行人重识别方法研究，论文完成时间2024年</li>
+            <li>11. 吴倩豪（博士生）<br>论文题目：基于有限标签数据的图像理解方法研究，论文完成时间2024年</li>
+            <li>12. 王伟（博士生）<br>论文题目：基于深度学习的消化道内窥镜图像分类与分割，论文完成时间2024年</li>
+        </ul>
+        <h2>硕士培养情况</h2>
+        <ul>
+            <li>1. 黄毅（硕士生）<br>论文题目：基于自注意力机制的音源分离模型研究，论文完成时间：2020年</li>
+            <li>2. 梁潇（硕士生）<br>论文题目：基于视觉注意力模型的图像去雾深度学习方法研究，论文完成时间：2020年</li>
+            <li>3. 柴子琪（硕士生）<br>论文题目：基于生成式对抗网络的人脸表情合成研究，论文完成时间：2020年</li>
+            <li>4. 张瑞鹏（硕士生）<br>论文题目：基于门控循环单元网络的人体动作预测方法研究；论文完成时间：2021年</li>
+            <li>5. 林嘉珉（硕士生）<br>论文题目：基于卷积神经网络的图像去雨滴研究；论文完成时间：2021年</li>
+            <li>6. 李煌（硕士生）<br>论文题目：基于卷积神经网络的图像文本检测方法实现；论文完成时间：2021年</li>
+            <li>7. 赵翔宇（硕士生）<br>论文题目：基于多模态非局部网络的视频分类算法研究，论文完成时间：2022年</li>
+            <li>8. 洪凯（硕士生）<br>论文题目：基于自监督的虚假视频检测，论文完成时间：2022年</li>
+            <li>9. 袁呈呈（硕士生）<br>论文题目：面向细粒度视觉分析的小样本学习研究，论文完成时间：2022年</li>
+            <li>10. 田升（硕士生）<br>论文题目：基于度量学习的小样本图像识别，论文完成时间：2022年</li>
+            <li>11. 陈正（硕士生）<br>论文题目：基于标签的多媒体推荐算法研究，论文完成时间：2022年</li>
+            <li>12. 李翔（硕士生）<br>论文题目：基于轻量化深度神经网络模型的图像超分辨率方法，论文完成时间：2023年</li>
+            <li>13. 王爽（硕士生）<br>论文题目：基于社交关系的初学者论文推荐方法，论文完成时间：2023年</li>
+            <li>14. 赵从健（硕士生）<br>论文题目：基于数据生成的非独立同分布联邦学习方法研究，论文完成时间：2023年</li>
+            <li>15. 陈莹莹（硕士生）<br>论文题目：基于影响力函数的序列推荐攻防算法研究，论文完成时间：2024年</li>
+            <li>16. 丁玉青（硕士生）<br>论文题目：面向遮挡的多目标跟踪方法研究，论文完成时间：2024年</li>
+        </ul>
+    </div>
+    
+</div>
+
+<script>
+function switchSection(sectionId) {
+    const sections = document.querySelectorAll('.section');
+    const tabs = document.querySelectorAll('.tab');
+
+    sections.forEach(section => section.classList.remove('active'));
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    document.getElementById(sectionId).classList.add('active');
+    document.querySelector(`.tab[onclick="switchSection('${sectionId}')"]`).classList.add('active');
+}
+</script>
+</body>
+</html>
