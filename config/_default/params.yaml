@@ -17,11 +17,11 @@ marketing:
   seo:
     site_type: Organization
     local_business_type: ''
-    org_name: ''
-    description: 'A highly-customizable Hugo research group theme powered by Wowchemy website builder.'
-    twitter: 'GetResearchDev'
+    org_name: '南京理工大学智能媒体分析实验室'
+    description: '南京理工大学智能媒体分析实验室 (IMAG) 官方网站。'
+    twitter: ''
   analytics:
-    google_analytics: ''
+    google_analytics: 'G-M6ZMLZ4Q6S'
     baidu_tongji: ''
     google_tag_manager: ''
     microsoft_clarity: ''
