@@ -12,7 +12,7 @@ sections:
       #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
       user_groups:
           - Faculty 
-          - Academic Placements
+          # - Academic Placements
           # - Ph.D(博士)
           # - Principal Investigators
           # - Researchers
