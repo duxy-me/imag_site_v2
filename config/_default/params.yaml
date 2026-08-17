@@ -17,8 +17,8 @@ marketing:
   seo:
     site_type: Organization
     local_business_type: ''
-    org_name: '南京理工大学智能媒体分析实验室'
-    description: '南京理工大学智能媒体分析实验室 (IMAG) 官方网站。'
+    org_name: '南京理工大学智能媒体分析研究所'
+    description: '南京理工大学智能媒体分析研究所 (IMAG) 官方网站。'
     twitter: ''
   analytics:
     google_analytics: 'G-M6ZMLZ4Q6S'
@@ -45,7 +45,7 @@ header:
 
 footer:
   copyright:
-    notice: '© {year} 南京理工大学智能媒体分析实验室. All rights reserved.'
+    notice: '© {year} 南京理工大学智能媒体分析研究所. All rights reserved.'
     license:
       enable: false
       allow_derivatives: false

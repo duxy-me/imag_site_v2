@@ -1,7 +1,7 @@
 ---
 title: 招生指南
 date: 2026-01-14
-summary: 欢迎加入智能媒体分析实验室
+summary: 欢迎加入智能媒体分析研究所
 ---
 
 <div style="text-align: center; padding-top: 20px;">

@@ -9,13 +9,13 @@ sections:
     content:
       title: |
         南京理工大学 \
-        智能媒体分析实验室
+        智能媒体分析研究所
       image:
         filename: welcome.jpg
       text: |
         <br>
         
-        The **智能媒体分析实验室 Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2011.
+        The **智能媒体分析研究所 Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2011.
   
   - block: people
     content:
