@@ -15,7 +15,6 @@ banner:
 
   <!-- 2022年 -->
   <div class="pub-list-item view-citation" style="margin-bottom: 1rem;">
-    <i class="fas fa-trophy pub-icon" style="color: #d97706;" aria-hidden="true"></i>
     <span class="article-metadata li-cite-author">
       <span style="color: #070707;">唐金辉（排名1）</span>
     </span>
@@ -26,7 +25,6 @@ banner:
 
   <!-- 2020年 -->
   <div class="pub-list-item view-citation" style="margin-bottom: 1rem;">
-    <i class="fas fa-trophy pub-icon" style="color: #d97706;" aria-hidden="true"></i>
     <span class="article-metadata li-cite-author">
       <span style="color: #070707;">唐金辉（排名1）</span>
     </span>
@@ -37,7 +35,6 @@ banner:
 
   <!-- 2019年 -->
   <div class="pub-list-item view-citation" style="margin-bottom: 1rem;">
-    <i class="fas fa-trophy pub-icon" style="color: #d97706;" aria-hidden="true"></i>
     <span class="article-metadata li-cite-author">
       <span style="color: #070707;">唐金辉（排名4）</span>
     </span>
@@ -48,7 +45,6 @@ banner:
 
   <!-- 2018年 -->
   <div class="pub-list-item view-citation" style="margin-bottom: 1rem;">
-    <i class="fas fa-trophy pub-icon" style="color: #d97706;" aria-hidden="true"></i>
     <span class="article-metadata li-cite-author">
       <span style="color: #070707;">唐金辉（排名3）</span>
     </span>
